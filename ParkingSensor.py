@@ -24,7 +24,7 @@ canvas.create_oval(origin_x - 6, origin_y - 6, origin_x + 6, origin_y + 6, fill=
 canvas.create_text(origin_x, origin_y - 10, text='sensor', font=mid_font, fill='black', anchor='s')
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-sock.bind(("0.0.0.0", 8080))
+sock.bind(("0.0.0.0", 8081))
 
 
 def run_as_thread(func):  # 装饰器，让函数运行时另开一个线程
@@ -103,7 +103,7 @@ def plot_axis():
 def start():
     canvas.delete('a')
     try:
-        sock.sendto('start'.encode('utf-8'), (entry2.get(), 8080))
+        sock.sendto('start'.encode('utf-8'), (entry2.get(), 8081))
     except Exception as e:
         messagebox.showerror('ip error', f'cannot send data to {entry2.get()}')
         print(e)
@@ -111,7 +111,7 @@ def start():
 
 def end():
     try:
-        sock.sendto('end'.encode('utf-8'), (entry2.get(), 8080))
+        sock.sendto('end'.encode('utf-8'), (entry2.get(), 8081))
     except Exception:
         messagebox.showerror('ip error', f'cannot send data to {entry2.get()}')
 
