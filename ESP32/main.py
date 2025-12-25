@@ -36,7 +36,7 @@ wifi_connected = connect_wifi('CrownYou', '3141592653', timeout=5)
 # if not wifi_connected:
 #    wifi_connected = connect_wifi('CMCC-G4AH', 'QR7VPSQ5', timeout=5)
 if not wifi_connected:
-    wifi_connected = connect_wifi('CMCC-EhtH', 'fxuu7433', timeout=5)
+    wifi_connected = connect_wifi('CMCC-2UCK', 'ZNQ7UYCZ', timeout=5)
 
 if wifi_connected:
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -59,7 +59,7 @@ if wifi_connected:
 
     my_servo = Servo(machine.Pin(16))
     sensor = HCSR04(trigger_pin=22, echo_pin=32)  # 定义超声波模块Tring控制管脚及超声波模块Echo控制管脚
-    delay = 0.25
+    delay = 0.1
     min = 15
     max = 165
 
@@ -88,5 +88,3 @@ if wifi_connected:
             for i in range(max, min, -15):
                 do_task(i, period)
             period += 1
-
-

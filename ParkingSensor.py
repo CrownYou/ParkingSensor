@@ -74,11 +74,11 @@ def plot_axis():
         messagebox.showerror('car width should be a positive integer', 'car width should be a positive integer')
         return 0
     canvas.delete('a')
-    magnification = width / (car_width / 10 + 90 * 2)  # 放大倍率：屏幕宽度/(车身宽度+90cm*2)，单位：像素/厘米
+    magnification = width / (car_width / 10 + 45 * 2)  # 放大倍率：屏幕宽度/(车身宽度+45cm*2)，单位：像素/厘米
     # 画出车尾
     left_end = int(origin_x - car_width / 20 * magnification)
     right_end = int(origin_x + car_width / 20 * magnification)
-    r1, r2, r3 = 30 * magnification, 60 * magnification, 90 * magnification
+    r1, r2, r3 = 15 * magnification, 30 * magnification, 45 * magnification
     canvas.create_line(left_end, origin_y, right_end, origin_y, fill="black", width=3, tags='a')
     canvas.create_line(left_end, origin_y + r1, right_end, origin_y + r1, fill="red", width=3, tags='a')
     canvas.create_line(left_end, origin_y + r2, right_end, origin_y + r2, fill="blue", width=3, tags='a')
@@ -95,9 +95,9 @@ def plot_axis():
     canvas.create_arc(*bbox5, start=270, extent=90, style=tk.ARC, width=2, outline="blue", tags='a')
     bbox6 = (right_end - r3, origin_y - r3, right_end + r3, origin_y + r3)
     canvas.create_arc(*bbox6, start=270, extent=90, style=tk.ARC, width=2, outline="green", tags='a')
-    canvas.create_text(right_end + r1, origin_y, text='30cm', font=mid_font, fill='black', anchor='s', tags='a')
-    canvas.create_text(left_end - r2, origin_y, text='60cm', font=mid_font, fill='black', anchor='s', tags='a')
-    canvas.create_text(origin_x, origin_y + r3, text='90cm', font=mid_font, fill='black', anchor='n', tags='a')
+    canvas.create_text(right_end + r1, origin_y, text='15cm', font=mid_font, fill='black', anchor='s', tags='a')
+    canvas.create_text(left_end - r2, origin_y, text='30cm', font=mid_font, fill='black', anchor='s', tags='a')
+    canvas.create_text(origin_x, origin_y + r3, text='45cm', font=mid_font, fill='black', anchor='n', tags='a')
 
 
 def start():
@@ -141,6 +141,5 @@ button2 = tk.Button(frm2, text='启动扫描', font=mid_font, command=start)
 button2.grid(row=1, column=1, padx=20)
 button3 = tk.Button(frm2, text='结束扫描', font=mid_font, command=end)
 button3.grid(row=1, column=2, padx=20)
-
 
 window.mainloop()
